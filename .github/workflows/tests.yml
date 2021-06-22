@@ -42,7 +42,7 @@ jobs:
 
       - name: Generate dependencies
         run: |
-          sudo apt-get install libxml2-dev libxslt1-dev
+          sudo apt-get install libxml2-dev libxslt1-dev python-dev
           python -m pip install --upgrade pip setuptools py wheel requirements-builder
           requirements-builder -e all --level=${{ matrix.requirements-level }} setup.py > .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
 
