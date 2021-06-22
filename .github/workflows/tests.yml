@@ -42,8 +42,7 @@ jobs:
 
       - name: Generate dependencies
         run: |
-          sudo apt-get install libxml2-dev libxslt1-dev python-dev
-          sudo ln -s /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h /usr/include/xlocale.h
+          sudo apt-get install libxml2-dev libxslt1-dev python-dev=${{ matrix.python-version }}
           python -m pip install --upgrade pip setuptools py wheel requirements-builder
           requirements-builder -e all --level=${{ matrix.requirements-level }} setup.py > .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
 
